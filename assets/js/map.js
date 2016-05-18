@@ -1,8 +1,10 @@
-// initialize google map
-function initMap() {
-    var  mapDiv = document.getElementById("map");
-    var map = new google.maps.Map(mapDiv, {
-        center: { lat: 51.0486, lng: -114.0708 },
+$(document).ready(function() {
+
+    var marker;
+    var geocoder = new google.maps.Geocoder();
+    var myLatLng = new google.maps.LatLng(51.0486, -114.0708);
+    var mapOptions = {
+        center: myLatLng,
         zoom: 10,
         draggable: false,
         zoomControl: false,
@@ -10,5 +12,7 @@ function initMap() {
         scrollwheel: false,
         disableDoubleClickZoom: true,
         mapTypeControl: false
-    });
-}
+    };
+
+    var map = new google.maps.Map($("#map").get(0), mapOptions);
+});
